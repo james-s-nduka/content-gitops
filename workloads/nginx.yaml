@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5,6 +6,8 @@ metadata:
   namespace: lasample
   labels:
     app: nginx
+  annotations:
+    fluxcd.io/automated: 'true'
 spec:
   replicas: 2
   selector:
@@ -24,6 +27,6 @@ spec:
             cpu: "250m"
           limits:
             memory: "128Mi"
-            cpu: "500m"  
+            cpu: "500m"
         ports:
         - containerPort: 80
